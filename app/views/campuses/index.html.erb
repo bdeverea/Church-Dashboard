@@ -1,0 +1,10 @@
+<header>
+	<h1><%= pluralize(@campuses.count, "Campus", "Campuses") %></h1>
+
+	<ol>
+		<% @campuses.each do | campus | %>
+		<li><%= campus.name %></li>
+		<% end %>
+	</ol>
+
+</header>

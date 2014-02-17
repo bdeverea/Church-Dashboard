@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -33,8 +33,10 @@ group :doc do
 end
     
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
-  gem 'watchr'
+  gem 'simplecov', '~> 0.7.1', require: false
+  # gem 'watchr'
 end
 
 group :test do
