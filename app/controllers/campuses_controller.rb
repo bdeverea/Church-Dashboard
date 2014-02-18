@@ -4,4 +4,42 @@ class CampusesController < ApplicationController
 		@campuses = Campus.all
 	end
 
+	def show
+		@campus = Campus.find(params[:id])
+	end
+
+	def new
+		@campus = Campus.new
+	end
+
+	def create
+		@campus = Campus.create(campus_params)
+
+		if @campus.save
+			redirect_to @campus, notice: "#{@campus.name} was successfully created!"
+		else
+			render :new
+		end
+	end
+
+	def edit
+		@campus = Campus.find(params[:id])
+	end
+
+	def update
+		@campus = Campus.find(params[:id])
+
+		if @campus.update(campus_params)
+			redirect_to @campus, notice: "#{@campus.name} was successfully updated!"
+		else
+			render :edit
+		end
+	end
+
+private
+
+	def campus_params
+		params.require(:campus).permit(:name, :address1)
+	end
+
 end
