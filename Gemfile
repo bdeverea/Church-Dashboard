@@ -47,6 +47,8 @@ group :production do
 	gem 'pg'
 end
 
+#Use country-list gem for country dropdown values
+gem 'country_select'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

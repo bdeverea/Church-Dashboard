@@ -1,10 +1,13 @@
 class Campus < ActiveRecord::Base
 
-	validates :name, presence: true
-	validates :name, length: { minimum: 4 }
-	validates :name, uniqueness: true
-	validates :address1, presence: true
-	validates :address1, length: { minimum: 4 }
+	has_many :events
+	
+	validates :name, presence: true, length: { minimum: 4 }, uniqueness: true
+	validates :address1, presence: true, length: { minimum: 4 }
+	validates :city, presence: true
+	validates :state, presence: true, length: { maximum: 2 }
+	validates :postal_code, presence: true, numericality: { only_integer: true }
+	validates :country, presence: true, length: { maximum: 2 }
 
 	default_scope { order'name ASC' }
 

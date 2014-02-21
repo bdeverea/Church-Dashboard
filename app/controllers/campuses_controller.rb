@@ -39,7 +39,7 @@ class CampusesController < ApplicationController
 private
 
 	def campus_params
-		params.require(:campus).permit(:name, :address1)
+		params.require(:campus).permit(:name, :address1, :address2, :city, :state, :postal_code, :country, :phone)
 	end
 
 end

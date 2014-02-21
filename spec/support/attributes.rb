@@ -13,13 +13,17 @@ def campus_attributes (overrides = {})
 		city: 'North Chelmsford',
 		state: 'MA',
 		postal_code: '01863',
+		country: 'US',
 		phone: '9782513999'
 	}.merge(overrides)
 end
 
 def event_attributes (overrides = {})
 	{
-
-	}
+		name: 'Weekend Service',
+		date_time: '2014-02-20 17:41:25',
+		service_id: 1,
+		campus_id: 2
+	}.merge(overrides)
 end
 
