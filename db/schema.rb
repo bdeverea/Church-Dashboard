@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 20140221010942) do
     t.string   "name"
     t.integer  "service_id"
     t.integer  "campus_id"
-    t.datetime "date_time"
+    t.date     "date"
+    t.time     "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

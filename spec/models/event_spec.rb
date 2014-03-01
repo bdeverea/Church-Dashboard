@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe "An Event" do
 	
+	it "belongs to a Service" do
+		service = Service.create(service_attributes)
+		event = service.events.new(event_attributes)
+
+		expect(event.service).to eq(service)
+
+	end
+
 	it "requires a unique name and datetime combination" do
 		event = Event.create(event_attributes)
 		event2 = Event.create(event_attributes)
@@ -12,7 +20,7 @@ describe "An Event" do
 
 	it "does not require a unique name" do
 		event = Event.create(event_attributes)
-		event2 = Event.create(event_attributes(date_time: Time.now))
+		event2 = Event.create(event_attributes(date: Date.today))
 
 		expect(event.valid?).to be_true
 		expect(event2.valid?).to be_true

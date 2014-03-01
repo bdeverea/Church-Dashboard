@@ -13,7 +13,7 @@ class CampusesController < ApplicationController
 	end
 
 	def create
-		@campus = Campus.create(campus_params)
+		@campus = Campus.new(campus_params)
 
 		if @campus.save
 			redirect_to @campus, notice: "#{@campus.name} was successfully created!"

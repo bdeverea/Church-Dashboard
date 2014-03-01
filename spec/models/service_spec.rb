@@ -1,6 +1,18 @@
 require 'spec_helper'
 
 describe "A Service" do
+	it "has many events" do
+		service = Service.new(service_attributes)
+
+		event1 = service.events.new(event_attributes)
+		event2 = service.events.new(event_attributes)
+
+		expect(service.events).to include(event1)
+		expect(service.events).to include(event2)
+	end
+
+	it "deletes associated events"
+
 	it "requires a name" do
 		service = Service.create()
 		service2 = Service.create(name: "Saturday Service", description: 'Test description' )
