@@ -1,0 +1,19 @@
+<%= form_for @event do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %><br />
+
+	<%= f.label :date %>
+	<%= f.date_select :date, order: [:month, :day, :year] %>
+
+	<%= f.label :time %>
+	<%= f.time_select :time, { ignore_date: true, minute_step: 15, ampm: true } %><br />
+
+	<%= f.label :service %>
+  	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %><br />
+
+  	<%= f.label :campus %>
+  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id ] }, { include_blank: true } %><br />
+
+	<%= f.submit %> <%= link_to 'Cancel', events_url %>
+<% end %>
+
