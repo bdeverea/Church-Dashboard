@@ -1,0 +1,13 @@
+<header>
+	<h1><%= pluralize(@campuses.count, "Campus", "Campuses") %></h1>
+</header>
+<article>
+	<ol>
+		<% @campuses.each do | campus | %>
+		<li><%= link_to campus.name, campus_path(campus) %></li>
+		<% end %>
+	</ol>
+</article>
+<footer>
+	<%= link_to "Add Campus", new_campus_path %>
+</footer>

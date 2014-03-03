@@ -1,0 +1,9 @@
+<header>
+	<h1><%= @campus.name %></h1>
+</header>
+<article>
+	<p><%= @campus.address %></p>
+</article>
+<footer>
+	<%= link_to 'Edit', edit_campus_path(@campus) %> | <%= link_to 'All Campuses', campuses_path %>
+</footer>

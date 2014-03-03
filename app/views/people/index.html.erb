@@ -1,0 +1,7 @@
+<h1><%= pluralize(@people.count, 'Person') %></h1>
+
+<ol>
+<% @people.each do |person| %>
+	<li><%= person %></li>
+<% end %>
+</ol>
