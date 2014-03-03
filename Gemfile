@@ -36,7 +36,11 @@ group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
   gem 'simplecov', '~> 0.7.1', require: false
-  # gem 'watchr'
+end
+
+group :development do
+	gem 'pry-rails'
+	gem 'spring-commands-rspec'
 end
 
 group :test do
