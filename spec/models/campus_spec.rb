@@ -1,6 +1,25 @@
 require 'spec_helper'
 
 describe "A Campus" do
+	it "has many events" do
+		campus = Campus.new(campus_attributes)
+
+		event1 = campus.events.new(event_attributes)
+		event2 = campus.events.new(event_attributes)
+
+		expect(campus.events).to include(event1)
+		expect(campus.events).to include(event2)
+	end
+
+	it "deletes associated events" do
+		campus = Campus.create(campus_attributes)
+
+	  	campus.events.create(event_attributes)
+
+	  	expect { 
+	    	campus.destroy
+	  	}.to change(Event, :count).by(-1)
+	end
 
 	it "requires a valid name" do
 		campus = Campus.new(campus_attributes)

@@ -11,7 +11,14 @@ describe "A Service" do
 		expect(service.events).to include(event2)
 	end
 
-	it "deletes associated events"
+	it "deletes associated events" do
+		service = Service.create(service_attributes)
+		event = service.events.create(event_attributes)
+
+		expect { 
+	    	service.destroy
+	  	}.to change(Event, :count).by(-1)
+	end
 
 	it "requires a name" do
 		service = Service.create()
