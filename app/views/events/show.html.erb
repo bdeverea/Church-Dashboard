@@ -8,6 +8,8 @@
 </section>
 
 <footer>
-	<%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "All Events", events_path %>
+	<%= link_to "Edit", edit_event_path(@event) %> | 
+	<%= link_to "Delete", event_path(@event), {method: :delete, data: {confirm: "Are you sure you want delete this event: #{@event.name}?"}} %> | 
+	<%= link_to "All Events", events_path %>
 </footer>
 

@@ -47,4 +47,15 @@ describe "Navigating Events" do
 		expect(page).to have_text("Events")
 		expect(page).to have_selector('ul li')
 	end
+
+	it "redirects to the list page after deleting an event" do
+		event = Event.create(event_attributes)
+
+		visit event_path(event)
+
+		click_link('Delete')
+
+		expect(current_path).to eq(events_path)
+	end
+
 end

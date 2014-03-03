@@ -36,6 +36,13 @@ class CampusesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@campus = Campus.find(params[:id])
+
+		@campus.destroy
+		redirect_to campuses_url, notice: "#{@campus.name} has been successfully deleted!"
+	end
+
 private
 
 	def campus_params

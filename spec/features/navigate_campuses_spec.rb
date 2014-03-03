@@ -1,8 +1,6 @@
 require 'spec_helper.rb'
 
 describe "Navigating Campuses" do
-	
-
 
 	it "allows navigation from the list page to the detail page" do
 		campus = Campus.create(campus_attributes)
@@ -68,8 +66,15 @@ describe "Navigating Campuses" do
 
 		click_link('Cancel')
 		expect(page).to have_text('1 Campus')
+	end
 
+	it "redirects to the list page after deleting a campus" do
+		campus = Campus.create(campus_attributes)
 
+		visit campus_path(campus)
 
+		click_link('Delete')
+
+		expect(current_path).to eq(campuses_path)
 	end
 end

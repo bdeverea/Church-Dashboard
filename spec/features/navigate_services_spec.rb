@@ -42,5 +42,15 @@ describe "Navigating services" do
 
 		expect(page).to have_text("0 Services")
 	end
+
+	it "redirects to the list page after deleting a service" do
+		service = Service.create(service_attributes)
+
+		visit service_path(service)
+
+		click_link('Delete')
+
+		expect(current_path).to eq(services_path)
+	end
 	
 end

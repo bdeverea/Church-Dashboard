@@ -37,6 +37,13 @@ class ServicesController < ApplicationController
 
 	end
 
+	def destroy 
+		@service = Service.find(params[:id])
+
+		@service.destroy
+		redirect_to services_path, notice: "#{@service.name} has been successfully deleted!"
+	end
+
 private
 
 	def service_params
