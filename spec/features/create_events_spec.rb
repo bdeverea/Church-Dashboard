@@ -9,6 +9,7 @@ describe "Creating an Event" do
 		visit new_event_path
 
 		fill_in "Name", with: "Weekend Worship Gathering"
+		fill_in "Attendance", with: 321
 		select "2014", from: "event[date(1i)]"
 		select "February", from: "event[date(2i)]"
 		select "1", from: "event[date(3i)]"

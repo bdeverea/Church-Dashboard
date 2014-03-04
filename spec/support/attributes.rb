@@ -23,6 +23,7 @@ def event_attributes (overrides = {})
 		name: 'Weekend Service',
 		date: '2014-02-20',
 		time: '17:41:25',
+		attendance: 123,
 		service_id: 1,
 		campus_id: 2
 	}.merge(overrides)

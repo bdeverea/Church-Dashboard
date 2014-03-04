@@ -14,6 +14,9 @@
   	<%= f.label :campus %>
   	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id ] }, { include_blank: true } %><br />
 
+  	<%= f.label :attendance %>
+  	<%= f.number_field :attendance %><br />
+
 	<%= f.submit %> <%= link_to 'Cancel', events_url %>
 <% end %>
 

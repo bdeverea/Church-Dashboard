@@ -12,6 +12,7 @@ describe "Editing an Event" do
 		expect(find_field('Name').value).to eq(event.name)
 
 		fill_in 'Name', with: "Updated Event Name"
+		fill_in 'Attendance', with: 222
 		select(service.name, from: "event_service_id")
 		select(campus.name, from: "event_campus_id")
     	click_button 'Update Event'
