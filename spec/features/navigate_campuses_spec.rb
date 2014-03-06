@@ -13,6 +13,26 @@ describe "Navigating Campuses" do
 		expect(page).to have_text(campus.address)
 	end
 
+	it "allows navigation from the list page to the create page" do
+		visit campuses_url
+
+		click_link "Add Campus"
+
+		expect(current_path).to eq(new_campus_path)
+		expect(page).to have_selector('form')
+		expect(page).to have_text("Create a Campus")
+	end
+
+	it "allows navigation from the create page to the list page" do
+		visit new_campus_url
+
+		click_link "Cancel"
+
+		expect(current_path).to eq(campuses_path)
+		expect(page).to have_selector('ul')
+		expect(page).to have_text("Campus")
+	end
+
 	it "allows navigation from the detail page to the list page" do
 		campus = Campus.create(campus_attributes)
 

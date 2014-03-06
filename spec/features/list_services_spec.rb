@@ -10,9 +10,9 @@ describe "Viewing list of services" do
 		visit 'http://example.com/services'
 
 		expect(page).to have_text('3 Services')
-		page.should have_selector("ol li:nth-child(1)", text: service1.name)
-		page.should have_selector("ol li:nth-child(2)", text: service2.name)
-		page.should have_selector("ol li:nth-child(3)", text: service3.name)
+		page.should have_selector("ul li:nth-child(1)", text: service1.name)
+		page.should have_selector("ul li:nth-child(2)", text: service2.name)
+		page.should have_selector("ul li:nth-child(3)", text: service3.name)
 	end
 
 end

@@ -1,7 +1,11 @@
-<h1>Events</h1>
-
-<ul>
-	<% @events.each do |event| %>
-	<li><%= link_to event.name, event_path(event) %>
-	<% end %>
-</ul>
+<header>
+	<h1>Events</h1>
+</header>
+<section>
+	<ul>
+		<% @events.each do |event| %>
+		<li><%= link_to event.name, event_path(event) %>
+		<% end %>
+	</ul>
+</section>
+<%= link_to 'Create Event', new_event_url %>

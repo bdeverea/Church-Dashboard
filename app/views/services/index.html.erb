@@ -2,8 +2,8 @@
 
 <%= link_to "Create Service", new_service_url  %>
 
-<ol>
+<ul>
 	<% @services.each do | service | %>
 	<li><%= link_to service.name, service_url(service) %> on <%= service.description %></li> 
 	<% end %>
-</ol>
+</ul>

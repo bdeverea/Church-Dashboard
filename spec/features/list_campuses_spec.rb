@@ -9,8 +9,8 @@ describe "Viewing a list of Campuses"  do
 		visit "http://example.com/campuses"
 
 		expect(page).to have_text('3 Campuses')
-		page.should have_selector("ol li:nth-child(1)", text: campus1.name)
-		page.should have_selector("ol li:nth-child(2)", text: campus3.name)
-		page.should have_selector("ol li:nth-child(3)", text: campus2.name)
+		page.should have_selector("ul li:nth-child(1)", text: campus1.name)
+		page.should have_selector("ul li:nth-child(2)", text: campus3.name)
+		page.should have_selector("ul li:nth-child(3)", text: campus2.name)
 	end
 end

@@ -11,6 +11,26 @@ describe "Navigating services" do
 		expect(page).to have_text(service.name)
 	end
 
+	it "allows navigation from the list page to the create page" do
+		visit services_url
+
+		click_link "Create Service"
+
+		expect(current_path).to eq(new_service_path)
+		expect(page).to have_selector('form')
+		expect(page).to have_text('Create a Service')
+	end
+
+	it "allows navigation from the create page to the list page" do
+		visit new_service_url
+
+		click_link "Cancel"
+
+		expect(current_path).to eq(services_path)
+		expect(page).to have_selector('ul')
+		expect(page).to have_text("Services")
+	end
+
 	it "allows navigation from the details page to the list page" do
 		service = Service.create(service_attributes)
 

@@ -14,6 +14,27 @@ describe "Navigating Events" do
 		expect(page).to have_selector('p')
 
 	end
+
+	it "allows navigation from the list page to the create page" do
+		visit events_url
+
+		click_link 'Create Event'
+
+		expect(current_path).to eq(new_event_path)
+		expect(page).to have_selector('form')
+		expect(page).to have_text('Create an Event')
+
+	end
+
+	it "allows navigation from the create page to the list page" do
+		visit new_event_path
+
+		click_link 'Cancel'
+
+		expect(current_path).to eq(events_path)
+		expect(page).to have_text("Events")
+		expect(page).to have_selector('ul')
+	end
 	
 	it "allows navigation from the detail page to the list page" do
 		event = Event.create(event_attributes)
