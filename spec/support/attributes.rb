@@ -29,3 +29,12 @@ def event_attributes (overrides = {})
 	}.merge(overrides)
 end
 
+def room_attributes (overrides = {})
+	{
+		name: "Green Room",
+		description: "Kid's Harbor Pre-K - 1st Grade",
+		capacity: 25,
+		campus_id: 1
+	}.merge(overrides)
+end
+

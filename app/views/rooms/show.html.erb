@@ -1,0 +1,8 @@
+<h1><%= @room.name %></h1>
+
+<footer>
+	<%= link_to "Edit", edit_room_path(@room) %> | 
+	<%= link_to "Delete", room_path(@room), {method: :delete, data: {confirm: "Are you sure you want delete this room: #{@room.name}?"}} %> | 
+	<%= link_to "All Rooms", rooms_path %>
+</footer>
+

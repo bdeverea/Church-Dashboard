@@ -5,9 +5,11 @@ Dashboard::Application.routes.draw do
   end
   resources :campuses do
     resources :events
+    resources :rooms
   end
 
   resources :events
+  resources :rooms
 
 
   # The priority is based upon order of creation: first created -> highest priority.

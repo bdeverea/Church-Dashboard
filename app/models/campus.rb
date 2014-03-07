@@ -1,6 +1,7 @@
 class Campus < ActiveRecord::Base
 
 	has_many :events, dependent: :destroy
+	has_many :rooms, dependent: :destroy
 	
 	validates :name, presence: true, length: { minimum: 4 }, uniqueness: true
 	validates :address1, presence: true, length: { minimum: 4 }
