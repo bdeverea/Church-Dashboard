@@ -10,6 +10,20 @@ describe "An Event" do
 
 	end
 
+	it "belongs to a Campus" do
+		campus = Campus.create(campus_attributes)
+		event = campus.events.new(event_attributes)
+
+		expect(event.campus).to eq(campus) 
+	end
+
+	it "has one room" do
+		room = Room.create(room_attributes)
+		event = Event.create(event_attributes(room_id: room.id))
+
+		expect(event.room).to eq(room)
+	end
+
 	it "requires a unique name and datetime combination" do
 		event = Event.create(event_attributes)
 		event2 = Event.create(event_attributes)
@@ -40,6 +54,14 @@ describe "An Event" do
 
 		expect(event.valid?).to be_true
 		expect(event_no_campus_id.valid?).to be_false
+	end
+
+	it "accepts attendance value greater than 0" do
+		event = Event.new(event_attributes)
+		event2 = Event.new(event_attributes(attendance: -10))
+
+		expect(event.valid?).to be_true
+		expect(event2.valid?).to be_false
 	end
 	
 end

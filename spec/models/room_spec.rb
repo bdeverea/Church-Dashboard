@@ -24,4 +24,12 @@ describe "A Room" do
 
 		expect(room.valid?).to be_false
 	end
+
+	it "accepts a capacity greater than zero" do
+		room = Room.new(room_attributes)
+		room2 = Room.new(room_attributes(capacity: -1))
+
+		expect(room.valid?).to be_true
+		expect(room2.valid?).to be_false
+	end
 end

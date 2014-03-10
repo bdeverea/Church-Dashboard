@@ -11,6 +11,16 @@ describe "Navigating Rooms" do
 		expect(current_path).to eq(room_path(room))
 	end
 
+	it "allows navigation from the list page to the create page" do
+		visit rooms_url
+
+		click_link "New Room"
+
+		expect(current_path).to eq(new_room_path)
+		expect(page).to have_selector('form')
+		expect(page).to have_text('Create a Room')
+	end
+
 	it "allows navigation from the detail page to the list page" do
 		room = Room.create(room_attributes)
 		visit room_url(room)

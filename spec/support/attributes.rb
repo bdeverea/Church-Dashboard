@@ -25,7 +25,8 @@ def event_attributes (overrides = {})
 		time: '17:41:25',
 		attendance: 123,
 		service_id: 1,
-		campus_id: 2
+		campus_id: 2,
+		room_id: 1
 	}.merge(overrides)
 end
 

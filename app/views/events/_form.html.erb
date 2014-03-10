@@ -12,10 +12,10 @@
   	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %><br />
 
   	<%= f.label :campus %>
-  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id ] }, { include_blank: true } %><br />
+  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id ] }, { include_blank: true } %><%= link_to "Create new campus", new_campus_url, {id: 'create_campus'} %><br />
 
   	<%= f.label :attendance %>
-  	<%= f.number_field :attendance %><br />
+  	<%= f.number_field :attendance, min: 0 %><br />
 
 	<%= f.submit %> <%= link_to 'Cancel', events_url %>
 <% end %>

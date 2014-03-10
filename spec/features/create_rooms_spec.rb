@@ -33,7 +33,7 @@ describe "Creating a Room" do
 		visit new_room_url
 
 		fill_in "Name", with: ""
-		#Leave capacity blank
+		fill_in "Capacity", with: 0
 
 		click_button "Create Room"
 
