@@ -1,3 +1,13 @@
-<h1>Create an Event</h1>
+<header>
+	<h1>Create an Event</h1>
+</header>
+
+<section id="event-form">
 <%= render 'shared/errors', object: @event %>
 <%= render 'form' %>
+</section>
+
+<section id="campus-form">
+<%= render 'shared/errors', object: @campus %>
+<%= render 'campuses/form' %>
+</section>

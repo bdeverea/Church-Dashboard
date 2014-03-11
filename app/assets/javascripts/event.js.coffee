@@ -1,9 +1,5 @@
-showModal = -> 
-		console.log("A link: " + $('#create_campus'))
-		$('#create_campus').click ->
-			preventDefault()
-			console.log("Linked clicked!")
-		
-		
-
-showModal()
+$ ->
+	$("select#event_campus_id").change ->
+  	console.log($(this).val())
+  	if $(this).val() == "Create New..."
+  		console.log("SHOW CAMPUS FORM!")

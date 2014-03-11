@@ -10,11 +10,13 @@ class EventsController < ApplicationController
 
 	def new
 		@event = Event.new
+		@campus = Campus.new
 		@campuses = Campus.all
 		@services = Service.all 
 	end
 
 	def edit
+		#TODO: DRY up and cache campuses and services
 		@campuses = Campus.all
 		@services = Service.all 
 		@event = Event.find(params[:id])
@@ -22,8 +24,11 @@ class EventsController < ApplicationController
 
 	def create
 		@event = Event.new(event_params)
-
-		if @event.save
+		
+		if params[:event][:campus_id] == 'Create New...'
+			#This path should only be hit if js is turned off
+			redirect_to new_campus_url
+		elsif @event.save
 			redirect_to @event, notice: "#{@event.name} was successfully created!"
 		else
 			@campuses = Campus.all

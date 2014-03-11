@@ -79,4 +79,14 @@ describe "Navigating Events" do
 		expect(current_path).to eq(events_path)
 	end
 
+	it "redirects to the create campus form if js is disabled and 'Create New...' is selected" do
+		visit new_event_path
+
+		select "Create New...", from: 'event_campus_id'
+		click_button('Create Event')
+
+		expect(current_path).to eq(new_campus_path)
+
+	end
+
 end
