@@ -2,9 +2,11 @@
 	<h1>Create an Event</h1>
 </header>
 
-<section id="event-form">
-<%= render 'shared/errors', object: @event %>
-<%= render 'form' %>
+<section id="event-form" class="row">
+	<div class="small-2 large-6 columns">
+		<%= render 'shared/errors', object: @event %>
+		<%= render 'form' %>
+	</div>
 </section>
 
-<div id="content"></div>
+<!-- <div id="form-campus"></div> -->

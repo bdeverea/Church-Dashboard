@@ -16,14 +16,16 @@ class CampusesController < ApplicationController
       format.js   {}
 		end
 
-
 	end
 
 	def create
 		@campus = Campus.new(campus_params)
 
 		if @campus.save
-			redirect_to @campus, notice: "#{@campus.name} was successfully created!"
+			respond_to do |format|
+				format.html { redirect_to @campus, notice: "#{@campus.name} was successfully created!" }
+      	format.js
+			end
 		else
 			render :new
 		end
