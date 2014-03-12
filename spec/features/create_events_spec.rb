@@ -32,7 +32,7 @@ describe "Creating an Event" do
 		click_button "Create Event"
 
 		expect(page).to have_text("Oops! The event could not be saved.")
-		expect(page).to have_text("Please correct the following 4 errors")
+		expect(page).to have_text("Please correct the following 5 errors")
 	end
 
 	it "does not save the Event if required fields are invalid" do
@@ -45,7 +45,7 @@ describe "Creating an Event" do
 		click_button "Create Event"
 
 		expect(page).to have_text("Oops! The event could not be saved.")
-		expect(page).to have_text("Please correct the following 3 errors")
+		expect(page).to have_text("Please correct the following 4 errors")
 	end
 
 end

@@ -13,7 +13,7 @@
   	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %><br />
 
   	<%= f.label :campus %>
-  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id] } + ['Create New...'], { include_blank: true } %><br />
+  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id] } + ['Create New...'], { include_blank: true } %> <%= link_to "Create Campus", new_campus_url, remote: true %><br />
 
   	<%= f.label :attendance %>
   	<%= f.number_field :attendance, min: 0 %><br />

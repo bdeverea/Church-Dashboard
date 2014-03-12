@@ -10,6 +10,13 @@ class CampusesController < ApplicationController
 
 	def new
 		@campus = Campus.new
+
+		respond_to do |format|
+			format.html {}
+      format.js   {}
+		end
+
+
 	end
 
 	def create

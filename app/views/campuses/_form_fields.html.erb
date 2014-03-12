@@ -1,0 +1,23 @@
+<%= form_for(@campus, remote: :remote) do |f| %>
+
+<fieldset>
+	<%= f.label :name %>
+	<%= f.text_field :name %><br />
+	<%= f.label :address1 %>
+	<%= f.text_field :address1 %><br />
+	<%= f.label :address2 %>
+	<%= f.text_field :address2 %><br />
+	<%= f.label :city %>
+	<%= f.text_field :city %><br />
+	<%= f.label :state %>
+	<%= f.text_field :state %><br />
+	<%= f.label :postal_code %>
+	<%= f.text_field :postal_code %><br />
+	<%= f.label :country %>
+	<%= f.country_select :country, ["US", "GB"], iso_codes: true %><br />
+	<%= f.label :phone %>
+	<%= f.telephone_field :phone %><br />
+
+	<%= f.submit %> 
+</fieldset>
+<% end %>

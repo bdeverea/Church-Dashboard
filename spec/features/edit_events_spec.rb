@@ -33,7 +33,7 @@ describe "Editing an Event" do
     	click_button 'Update Event'
 
 	    expect(page).to have_text('Oops! The event could not be saved.')
-	    expect(page).to have_text('Please correct the following 3 errors')
+	    expect(page).to have_text('Please correct the following 4 errors')
 	end
 
 end
