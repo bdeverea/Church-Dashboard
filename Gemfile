@@ -10,7 +10,10 @@ gem 'rails', '4.0.0'
 gem 'sass-rails', '~> 4.0.0'
 
 #Use Boostrap for HTML templates
-gem 'bootstrap-sass', '~> 3.1.1'
+# gem 'bootstrap-sass', '~> 3.1.1'
+
+#Use Zurb Foundation for HTML/Responsive Templates
+gem 'foundation-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
