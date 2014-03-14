@@ -3,8 +3,4 @@
 </header>
 
 <%= render 'shared/errors', object: @campus %>
-<%= render 'form' %>
-
-<footer>
-	<%= link_to "Cancel", campuses_path %>
-</footer>
+<%= render partial: 'form', locals: {send_remote: true} %>

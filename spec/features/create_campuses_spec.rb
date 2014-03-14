@@ -11,6 +11,9 @@ describe "Creating Campuses" do
 		fill_in "State", with: "MA"
 		fill_in "Postal code", with: "01863"
 		select("Canada", from: "Country")
+		fill_in "Room Name", with: "Green Room"
+		fill_in "Description", with: "Kids Harbor Room - Toddlers thru Pre-K"
+		fill_in "Capacity", with: 15
 		click_button "Create Campus"
 
 		expect(page).to have_text("Harbor Main Campus")
@@ -24,7 +27,7 @@ describe "Creating Campuses" do
 
 		click_button "Create Campus"
 		expect(page).to have_text("Oops!")
-		expect(page).to have_text("Please correct the following 8 errors")
+		expect(page).to have_text("Please correct the following 10 errors")
 	end
 
 	it "does not save the Campus if it is invald" do
@@ -35,10 +38,13 @@ describe "Creating Campuses" do
 		fill_in "City", with: "" #can't be blank
 		fill_in "State", with: "MASSACHUSETTS" #too long (2)
 		fill_in "Postal code", with: "ASDF" #must be numbers
+		fill_in "Room Name", with: ""
+		fill_in "Description", with: ""
+		fill_in "Capacity", with: -1
 
 		click_button "Create Campus"
 		expect(page).to have_text("Oops!")
-		expect(page).to have_text("Please correct the following 5 errors")
+		expect(page).to have_text("Please correct the following 7 errors")
 	end
 
 end

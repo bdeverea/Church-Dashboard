@@ -22,7 +22,7 @@ describe "Creating a Room" do
 
 		fill_in "Name", with: ""
 		fill_in "Description", with: "HoH Kids Harbor - Nursery"
-		fill_in "Capacity", with: 15
+		fill_in "Capacity", with: -1
 
 		click_button "Create Room"
 
@@ -37,7 +37,7 @@ describe "Creating a Room" do
 
 		click_button "Create Room"
 
-		expect(page).to have_text("Oops! The room could not be saved. Please correct the following 2 errors")
+		expect(page).to have_text("Oops! The room could not be saved. Please correct the following 1 error")
 	end
 
 end

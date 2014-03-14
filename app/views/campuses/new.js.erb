@@ -1,1 +1,1 @@
-$('body').append("<div id=\"form-campus\"><h1>Add a Campus</h1><%= escape_javascript(render(:partial => 'form')).html_safe %></div>").show();
+$('body').append("<div id=\"form-campus\"><h1>Add a Campus</h1><%= escape_javascript(render(partial: 'form', locals: {send_remote: true})).html_safe %></div>").show();

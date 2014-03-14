@@ -10,6 +10,7 @@ class CampusesController < ApplicationController
 
 	def new
 		@campus = Campus.new
+		@rooms = @campus.rooms.build
 
 		respond_to do |format|
 			format.html {}

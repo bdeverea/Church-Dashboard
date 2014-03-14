@@ -29,7 +29,7 @@ describe "Editing a Room" do
 
 		click_button ("Update Room")
 
-		expect(page).to have_text("Oops! The room could not be saved. Please correct the following 2 errors")
+		expect(page).to have_text("Oops! The room could not be saved. Please correct the following 1 error")
 	end
 
 end

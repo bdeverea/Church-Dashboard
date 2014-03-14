@@ -18,12 +18,6 @@ describe "A Room" do
 		expect(room3.valid?).to be_false
 		expect(room4.valid?).to be_false
 	end
-	
-	it "requires a campus_id" do
-		room = Room.new(room_attributes(campus_id: ''))
-
-		expect(room.valid?).to be_false
-	end
 
 	it "accepts a capacity greater than zero" do
 		room = Room.new(room_attributes)

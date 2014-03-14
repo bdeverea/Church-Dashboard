@@ -1,15 +1,4 @@
 <%= form_for @room do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %><br />
-
-	<%= f.label :description %>
-	<%= f.text_area :description %><br />
-
-	<%= f.label :capacity %>
-	<%= f.number_field :capacity, min: 0 %><br />
-
-	<%= f.label :campus %>
-	<%= f.select :campus_id, @campuses.collect {|c| [c.name, c.id]}, {include_blank: true} %><br />
-
-	<%= f.submit %> <%= link_to 'Cancel', rooms_url %>
+	<%= render partial: 'form_fields', locals: {f: f} %>
+	<%= f.submit nil, class: 'button' %> <%= link_to 'Cancel', rooms_url %>
 <% end %>
