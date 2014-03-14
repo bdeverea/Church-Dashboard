@@ -12,8 +12,35 @@
   </head>
 
   <body>
-    <%= render 'layouts/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Dashboard</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">    
+          <li class="has-dropdown">
+            <a href="#">Settings</a>
+            <ul class="dropdown">
+              <li><%= link_to 'Services', services_path %></li>
+              <li><%= link_to 'Events', events_path %></li>
+              <li><%= link_to 'Campuses', campuses_path %></li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+
+    <section class="row">
+      <%= render 'layouts/flashes' %>
+    </section>
+    <section class="row">
+      <%= yield %>
+    </section>
+    
+    <%= javascript_include_tag "application", :defer => "defer" %>
   </body>
 </html>
