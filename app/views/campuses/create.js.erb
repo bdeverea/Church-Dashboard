@@ -1,2 +1,2 @@
 $('#form-campus').remove()
-$('select#event_campus_id').append("<option selected value=\"<%= @campus.id %>\"><%= @campus.name %></option>")
+$('select#event_campus_id').prepend("<option selected value=\"<%= @campus.id %>\"><%= @campus.name %></option>")

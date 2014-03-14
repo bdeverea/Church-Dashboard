@@ -1,22 +1,22 @@
 <%= form_for @event do |f| %>
 <fieldset>
 	<%= f.label :name %>
-	<%= f.text_field :name %><br />
+	<%= f.text_field :name %>
 
 	<%= f.label :date %>
 	<%= f.date_select :date, order: [:month, :day, :year] %>
 
 	<%= f.label :time %>
-	<%= f.time_select :time, { ignore_date: true, minute_step: 15, ampm: true } %><br />
+	<%= f.time_select :time, { ignore_date: true, minute_step: 15, ampm: true } %>
 
 	<%= f.label :service %>
-  	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %><br />
+  	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %>
 
   	<%= f.label :campus %>
-  	<%= f.select :campus_id, @campuses.collect {|c| [ c.name, c.id] } + ['Create New...'], { include_blank: true } %> <%= link_to "Create Campus", new_campus_url, remote: true %><br />
+  	<%= f.select :campus_id, ['Create New...'] + @campuses.collect {|c| [ c.name, c.id] }, { include_blank: true } %>
 
   	<%= f.label :attendance %>
-  	<%= f.number_field :attendance, min: 0, value: 0 %><br />
+  	<%= f.number_field :attendance, min: 0, value: 0 %>
 
 	<%= f.submit %> <%= link_to 'Cancel', events_url %>
 </fieldset>

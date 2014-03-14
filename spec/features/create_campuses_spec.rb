@@ -14,6 +14,7 @@ describe "Creating Campuses" do
 		click_button "Create Campus"
 
 		expect(page).to have_text("Harbor Main Campus")
+		expect(current_path).not_to have_selector("form")
 	end
 
 	it "does not save the Campus if required fields are empty" do

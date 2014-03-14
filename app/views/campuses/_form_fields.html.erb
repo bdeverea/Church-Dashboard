@@ -1,4 +1,4 @@
-<%= form_for(@campus, remote: :remote) do |f| %>
+<%= form_for(@campus, remote: send_remote) do |f| %>
 
 <fieldset>
 	<%= f.label :name %>
@@ -17,6 +17,18 @@
 	<%= f.country_select :country, ["US", "GB"], iso_codes: true %><br />
 	<%= f.label :phone %>
 	<%= f.telephone_field :phone %><br />
+
+	<%= f.fields_for :room do |b| %>
+		<fieldset>
+			<%= b.label :name, "Room Name" %>
+			<%= b.text_field :name %><br />
+			<%= b.label :description %>
+			<%= b.text_area :description %><br />
+			<%= b.label :capacity %>
+			<%= b.number_field :capacity, value: 0, min: 0 %><br />
+		</fieldset>
+	<% end %>
+	
 
 	<%= f.submit %> 
 </fieldset>
