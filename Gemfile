@@ -7,6 +7,9 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
+# Use Postgres as the database for Active Record
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -41,7 +44,7 @@ group :doc do
 end
     
 group :test, :development do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
   gem 'simplecov', '~> 0.7.1', require: false
 end
@@ -57,7 +60,6 @@ group :test do
 end
 
 group :production do
-	gem 'pg'
 	gem 'rails_12factor'
 end
 
