@@ -1,9 +1,9 @@
 <h1><%= pluralize(@services.size, 'Service') %></h1>
 
-<%= link_to "Create Service", new_service_url  %>
-
 <ul>
 	<% @services.each do | service | %>
 	<li><%= link_to service.name, service_url(service) %> on <%= service.description %></li> 
 	<% end %>
 </ul>
+
+<%= link_to "Create Service", new_service_url  %>

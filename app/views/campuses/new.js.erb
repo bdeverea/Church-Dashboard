@@ -1,2 +1,15 @@
-//TODO: Load form into jQuery Modal with close/cancel box
-$('body').append("<div id=\"form-campus\"><h1>Add a Campus</h1><%= escape_javascript(render(partial: 'form', locals: {send_remote: true})).html_safe %></div>").show();
+$(function() {
+  var form_content = "<div id=\"form-campus\" class=\"row\"><%= escape_javascript(render(partial: 'form', locals: {send_remote: true})).html_safe %></div>";
+
+  $('body').append(form_content).show();
+  
+  $('#form-campus').dialog({ 
+  										title: "Add a Campus",
+  										modal: true, 
+  										minWidth: 500,  
+  										dialogClass: "small-8 large-8 columns",
+  										show: { effect: "drop" },
+  										hide: { effect: "drop" }
+  									});
+
+});
