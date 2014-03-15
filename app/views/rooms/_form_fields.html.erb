@@ -1,13 +1,26 @@
-<%= f.label :name, "Room Name" %>
-<%= f.text_field :name %><br />
-
-<%= f.label :description %>
-<%= f.text_area :description %><br />
-
-<%= f.label :capacity %>
-<%= f.number_field :capacity, min: 0 %><br />
-
-<% if @room %>
-<%= f.label :campus %>
-<%= f.select :campus_id, @campuses.collect {|c| [c.name, c.id]}, {include_blank: true} %><br />
-<% end %> 
+<div class="row">
+	<div class="columns">
+		<%= f.label :name, "Room Name" %>
+		<%= f.text_field :name %>
+	</div>
+</div>
+<div class="row">
+	<div class="columns">
+		<%= f.label :description %>
+		<%= f.text_area :description %>
+	</div>
+</div>
+<div class="row">
+	<div class="columns">
+		<%= f.label :capacity %>
+		<%= f.number_field :capacity, min: 0, value: 0 %>
+	</div>
+</div>
+<div class="row">
+	<div class="columns">
+		<% if @room %>
+		<%= f.label :campus %>
+		<%= f.select :campus_id, @campuses.collect {|c| [c.name, c.id]}, {include_blank: true} %><br />
+		<% end %> 
+	</div>
+</div>

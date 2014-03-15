@@ -3,38 +3,33 @@
 	<div class="row">
 		<div class="columns">
 			<%= f.label :name %>
-			<%= f.text_field :name %>
+			<%= f.text_field :name, class: "" %>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="columns">
-			<%= f.label :date %>
-			<%= f.date_field :date, order: [:month, :day, :year], class: ""%>
+			<%= f.label :date, class: "" %>
+			<%= f.date_field :date, order: [:month, :day, :year], class: "", title: "" %>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="columns">
 			<%= f.label :time %>
 			<%= f.time_field :time, { ignore_date: true, minute_step: 15, ampm: true } %>
 		</div>
 	</div>
-
 	<div class="row">
 		<div class="columns">
 			<%= f.label :service %>
 	  	<%= f.select :service_id, @services.collect {|s| [ s.name, s.id ] }, { include_blank: true } %>
   	</div>
   </div>
-
   <div class="row">
 		<div class="columns">
 	  	<%= f.label :campus %>
 	  	<%= f.select :campus_id, ['Create New...'] + @campuses.collect {|c| [ c.name, c.id] }, { include_blank: true } %>
   	</div>
   </div>
-
   <div class="row">
 		<div class="columns">
 	  	<%= f.label :attendance %>
@@ -43,6 +38,7 @@
   </div>
 
 	<%= f.submit nil, class: "button radius" %> <%= link_to 'Cancel', events_url %>
+
 </fieldset>
 <% end %>
 

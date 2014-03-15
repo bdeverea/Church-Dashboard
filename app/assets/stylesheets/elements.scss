@@ -1,0 +1,27 @@
+@import "colors";
+
+.flash {
+  color: $primary-text-color;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: #ffc 0 0 4px;
+  
+  &.notice {
+    background-color: $flash-notice-color;
+    border-color: darken($flash-notice-color, 25%);
+  }
+
+  &.alert {
+    background-color: $flash-alert-color;
+    border-color: darken($flash-alert-color, 25%)
+  }
+
+  &.danger {
+    color:#FFF;
+    background-color: $flash-danger-color;
+    border-color: darken($flash-danger-color, 25%)
+  }
+}

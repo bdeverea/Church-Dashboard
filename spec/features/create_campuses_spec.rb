@@ -24,10 +24,11 @@ describe "Creating Campuses" do
 		visit new_campus_path
 		
 		#Don't fill_in any fields
+		#Room capacity defaults to 0
 
 		click_button "Create Campus"
 		expect(page).to have_text("Oops!")
-		expect(page).to have_text("Please correct the following 10 errors")
+		expect(page).to have_text("Please correct the following 9 errors")
 	end
 
 	it "does not save the Campus if it is invald" do

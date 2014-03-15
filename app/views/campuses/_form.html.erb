@@ -1,28 +1,63 @@
 <%= form_for(@campus, remote: send_remote) do |f| %>
 
 <fieldset>
-	<%= f.label :name %>
-	<%= f.text_field :name %><br />
-	<%= f.label :address1 %>
-	<%= f.text_field :address1 %><br />
-	<%= f.label :address2 %>
-	<%= f.text_field :address2 %><br />
-	<%= f.label :city %>
-	<%= f.text_field :city %><br />
-	<%= f.label :state %>
-	<%= f.text_field :state %><br />
-	<%= f.label :postal_code %>
-	<%= f.text_field :postal_code %><br />
-	<%= f.label :country %>
-	<%= f.country_select :country, ["US", "GB"], iso_codes: true %><br />
-	<%= f.label :phone %>
-	<%= f.telephone_field :phone %><br />
+	<div class="row">
+		<div class="columns">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :address1 %>
+			<%= f.text_field :address1 %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :address2 %>
+			<%= f.text_field :address2 %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :city %>
+			<%= f.text_field :city %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :state %>
+			<%= f.text_field :state %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :postal_code %>
+			<%= f.text_field :postal_code %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :country %>
+			<%= f.country_select :country, ["US", "GB"], iso_codes: true %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns">
+			<%= f.label :phone %>
+			<%= f.telephone_field :phone %>
+		</div>
+	</div>
 
-	<%= f.fields_for :rooms do |builder| %>
-		<%= render partial: 'rooms/form_fields', locals: {f: builder} %>
-	<% end %>
-	
+	<fieldset>
+    <legend>Add a room to this campus</legend>
+		<%= f.fields_for :rooms do |builder| %>
+			<%= render partial: 'rooms/form_fields', locals: {f: builder} %>
+		<% end %>
+	</fieldset>
 
-	<%= f.submit nil, class: 'button' %> 
+	<%= f.submit nil, class: "button right" %> 
+
 </fieldset>
 <% end %>

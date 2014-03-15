@@ -50,7 +50,7 @@ class CampusesController < ApplicationController
 		@campus = Campus.find(params[:id])
 
 		@campus.destroy
-		redirect_to campuses_url, notice: "#{@campus.name} has been successfully deleted!"
+		redirect_to campuses_url, alert: "#{@campus.name} has been successfully deleted!"
 	end
 
 private
