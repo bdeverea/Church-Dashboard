@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require foundation
 //= require turbolinks
+//= require Highcharts-3/js/highcharts-all
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
