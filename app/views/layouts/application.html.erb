@@ -29,7 +29,11 @@
             <ul class="dropdown">
               <li><%= link_to 'Services', services_path %></li>
               <li><%= link_to 'Events', events_path %></li>
-              <li><%= link_to 'Campuses', campuses_path %></li>
+              <li class="has-dropdown"><%= link_to 'Campuses', campuses_path %>
+                <ul class="dropdown">
+                  <li><%= link_to 'Rooms', rooms_path %></li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>

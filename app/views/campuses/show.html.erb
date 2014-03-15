@@ -1,11 +1,22 @@
-<header>
+<header class="row">
 	<h1><%= @campus.name %></h1>
 </header>
-<article>
+<section class="row">
 	<p><%= @campus.address %></p>
-</article>
-<footer>
-	<%= link_to 'Edit', edit_campus_path(@campus) %> | 
-	<%= link_to 'Delete', campus_path(@campus), {method: :delete, data: {confirm: "Are you sure you want to delete #{@campus.name}?"}} %>
-	<%= link_to 'All Campuses', campuses_path %>
-</footer>
+	<footer>
+		<%= link_to 'Edit', edit_campus_path(@campus) %> | 
+		<%= link_to 'Delete', campus_path(@campus), {method: :delete, data: {confirm: "Are you sure you want to delete #{@campus.name}?"}} %> | 
+		<%= link_to 'All Campuses', campuses_path %>
+	</footer>
+</section>
+<section class="row">
+	<header>
+		<h3>Rooms</h3>
+		<ul>
+		<% @campus.rooms.each do |room| %>
+			<li><%= room.name %> <%= link_to "Edit", room_path(room) %></li>
+		<% end %>
+		</ul>
+		<%= link_to 'Add Room', new_room_path, class: "button tiny round" %>
+	</header>
+</section>

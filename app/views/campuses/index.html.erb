@@ -4,7 +4,13 @@
 <article>
 	<ul>
 		<% @campuses.each do | campus | %>
-		<li><%= link_to campus.name, campus_path(campus) %></li>
+		<li><%= link_to campus.name, campus_path(campus) %>
+			<ul>
+			<% campus.rooms.each do |room| %>
+				<li><%= link_to room.name, room_path(room) %></li>
+			<% end %>
+			</ul>
+		</li>
 		<% end %>
 	</ul>
 </article>
