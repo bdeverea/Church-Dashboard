@@ -26,7 +26,7 @@ describe "An Event" do
 
 	it "requires a unique name and datetime combination" do
 		event = Event.create(event_attributes)
-		event2 = Event.create(event_attributes)
+		event2 = Event.new(event_attributes)
 
 		expect(event.valid?).to be_true
 		expect(event2.valid?).to be_false
@@ -34,7 +34,7 @@ describe "An Event" do
 
 	it "does not require a unique name" do
 		event = Event.create(event_attributes)
-		event2 = Event.create(event_attributes(date: Date.today))
+		event2 = Event.create(event_attributes(date: Date.today.to_s))
 
 		expect(event.valid?).to be_true
 		expect(event2.valid?).to be_true

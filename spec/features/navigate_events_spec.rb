@@ -9,7 +9,7 @@ describe "Navigating Events" do
 
 		click_link event.name
 
-		expect(page).to have_text(event.time)
+		expect(page).to have_text("17:41:25")
 		expect(page).to have_text(event.date)
 		expect(page).to have_selector('p')
 

@@ -10,11 +10,8 @@ describe "Creating an Event" do
 
 		fill_in "Name", with: "Weekend Worship Gathering"
 		fill_in "Attendance", with: 321
-		select "2014", from: "event[date(1i)]"
-		select "February", from: "event[date(2i)]"
-		select "1", from: "event[date(3i)]"
-		select "07 PM", from: "event[time(4i)]"
-		select "15", from: "event[time(5i)]"
+		fill_in "Date", with: "01/01/2013"
+		fill_in "Time", with: "17:00"
 		select(service.name, from: "event_service_id")
 		select(campus.name, from: "event_campus_id")
 
@@ -33,7 +30,7 @@ describe "Creating an Event" do
 		click_button "Create Event"
 
 		expect(page).to have_text("Oops! The event could not be saved.")
-		expect(page).to have_text("Please correct the following 4 errors")
+		expect(page).to have_text("Please correct the following 5 errors")
 	end
 
 	it "does not save the Event if required fields are invalid" do
@@ -46,7 +43,7 @@ describe "Creating an Event" do
 		click_button "Create Event"
 
 		expect(page).to have_text("Oops! The event could not be saved.")
-		expect(page).to have_text("Please correct the following 4 errors")
+		expect(page).to have_text("Please correct the following 5 errors")
 	end
 
 	it "allows the creation of a campus/room from within the event form", js: true do
