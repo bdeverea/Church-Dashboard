@@ -8,7 +8,7 @@ class CreateCampuses < ActiveRecord::Migration
       t.string :state
       t.string :postal_code
       t.string :country
-      t.integer :phone
+      t.integer :phone, limit: 8
 
       t.timestamps
     end

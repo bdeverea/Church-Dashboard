@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140314211355) do
     t.string   "state"
     t.string   "postal_code"
     t.string   "country"
-    t.integer  "phone"
+    t.integer  "phone",       limit: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
