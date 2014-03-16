@@ -2,7 +2,7 @@
 
 <ul>
 	<% @services.each do | service | %>
-	<li><%= link_to service.name, service_url(service) %> on <%= service.description %></li> 
+	<li><%= link_to service.name, service_url(service) %>: <%= service.description %></li> 
 	<% end %>
 </ul>
 

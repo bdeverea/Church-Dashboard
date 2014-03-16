@@ -4,7 +4,7 @@
 <section>
 	<ul>
 		<% @events.each do |event| %>
-		<li><%= link_to event.name, event_path(event) %>
+		<li><%= link_to event.name, event_path(event) %> (<%= event.time.strftime("%m/%d/%Y %I:%M %p") %>) </li>
 		<% end %>
 	</ul>
 </section>
