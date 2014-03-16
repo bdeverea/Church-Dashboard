@@ -12,3 +12,6 @@ deploy:
   app: church-dashboard
   on:
     repo: bdeverea/Church-Dashboard
+before_script: 
+  - 'rake db:test:prepare'
+  - 'rake db:migrate'
