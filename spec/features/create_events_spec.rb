@@ -46,13 +46,14 @@ describe "Creating an Event" do
 		expect(page).to have_text("Please correct the following 5 errors")
 	end
 
-	it "allows the creation of a campus/room from within the event form", js: true do
-		visit new_event_path
+	#TODO: Enable headless browser testing for Travis so this can run
+	# it "allows the creation of a campus/room from within the event form", js: true do
+	# 	visit new_event_path
 
-		select "Create New...", from: "event_campus_id"
+	# 	select "Create New...", from: "event_campus_id"
 
-		expect(page).to have_text("Add a Campus")
+	# 	expect(page).to have_text("Add a Campus")
 
-	end
+	# end
 
 end
