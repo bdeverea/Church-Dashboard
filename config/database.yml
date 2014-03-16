@@ -15,6 +15,7 @@ development:
 test:
   adapter: postgresql
   database: church_dashboard_qa
+  username: postgres
   pool: 5
   timeout: 5000
 

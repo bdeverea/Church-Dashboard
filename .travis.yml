@@ -1,10 +1,14 @@
 language: ruby
+cache: bundler
 rvm:
-  - "1.8.7"
-  - "1.9.2"
-  - "1.9.3"
-  - jruby-18mode # JRuby in 1.8 mode
-  - jruby-19mode # JRuby in 1.9 mode
-  - rbx
-# uncomment this line if your project needs to run something other than `rake`:
+- 2.0.0
 script: bundle exec rspec spec
+before_script:
+- psql -c 'create database church_dashboard_qa;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: FJq3VuGesbkscbpiFLNWW2twyjsC77c55A7XxsJrjoOXfJmCl9kjBYmK6jjOsmEog7Hww+fv2JK0vCGtKRdSr35gGUlmYdGgWh+umz88gw/kfVHAHDlTfquiprHDzqcHRcQoGfy1C9rDEjof8S32cClisIAJ0862McK2/m9NHEQ=
+  app: church-dashboard
+  on:
+    repo: bdeverea/Church-Dashboard
