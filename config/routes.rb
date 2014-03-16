@@ -10,6 +10,9 @@ Dashboard::Application.routes.draw do
 
   resources :events
   resources :rooms
+  resources :dashboards
+
+  root 'dashboards#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
