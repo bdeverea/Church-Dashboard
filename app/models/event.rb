@@ -17,6 +17,23 @@ class Event < ActiveRecord::Base
 
 	before_validation :combine_date_time
 
+	def self.ytd_attendance
+		date = Date.today
+		results = where("time >= ? AND time <= ?", date.beginning_of_year, date.end_of_year).group(:id, :name)
+			
+		data = Hash.new
+
+		results.each do |i|
+			if data.has_key?(i.name)
+				data[i.name] << i.attendance
+			else
+				data[i.name] = [i.attendance]
+			end
+		end
+		
+		return data
+	end
+
 	private
 
 	def combine_date_time

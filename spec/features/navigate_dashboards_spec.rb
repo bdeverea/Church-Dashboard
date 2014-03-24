@@ -5,7 +5,7 @@ describe "Navigating Dashboards" do
     visit "http://example.com"
 
     expect(page).to have_selector("header>h1")
-    expect(page).to have_selector("#container")
+    expect(page).to have_selector("#chart-ytd-attendance")
   end
 
 end
