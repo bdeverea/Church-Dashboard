@@ -66,11 +66,13 @@ describe "An Event" do
 
 	it "formats and displays ytd attendance" do
 		event = Event.create(event_attributes)
-		event2 = Event.create(event_attributes(name: "Sunday Service", time: "07:00:00", date: "2014-12-31", attendance: 999))
-		event3 = Event.create(event_attributes(name: "Sunday Service", time: "09:00:00", attendance: 456))
+		event2 = Event.create(event_attributes(time: "07:00:00", attendance: 999))
+		event3 = Event.create(event_attributes(time: "09:00:00", attendance: 456))
+		data = Event.ytd_attendance
 
 		expect(event2.valid?).to be_true
-		expect(Event.ytd_attendance).to eq({"Weekend Service"=>[123], "Sunday Service"=>[456, 999]})
+		expect(event3.valid?).to be_true
+		expect(data["Weekend Service"].length).to eq(3)
 	end
 	
 end
