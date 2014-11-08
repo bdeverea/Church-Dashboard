@@ -1,13 +1,11 @@
 language: ruby
 cache: bundler
 rvm:
-- 1.9.3
 - 2.0.0
 - 2.1.1
 script: 
-- 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && 
-  bundle exec pronto run -f github_pr' &&
-  bundle exec rspec spec
+- 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr'
+
 GITHUB_ACCESS_TOKEN: ef2f1a991d20d907620952322fc68afeb201af48
 before_script:
 - psql -c 'create database church_dashboard_qa;' -U postgres
