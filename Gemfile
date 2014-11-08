@@ -47,6 +47,9 @@ group :test, :development do
   # gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
   gem 'simplecov', '~> 0.7.1', require: false
+  gem 'proto'
+  gem 'pronto-rubocop'
+  gem 'pronto-flay'
 end
 
 group :development do
