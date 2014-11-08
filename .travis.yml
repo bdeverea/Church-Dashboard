@@ -5,6 +5,7 @@ rvm:
 - 2.1.1
 script: 
 - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr'
+- bundle update rake
 - bundle exec rspec spec
 
 GITHUB_ACCESS_TOKEN: ef2f1a991d20d907620952322fc68afeb201af48
