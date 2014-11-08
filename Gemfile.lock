@@ -110,8 +110,6 @@ GEM
     pronto-rubocop (0.2.6)
       pronto (~> 0.2, >= 0.2.0)
       rubocop (~> 0.24.0)
-    proto (0.0.7)
-      nokogiri
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -229,9 +227,9 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   pg
+  pronto
   pronto-flay
   pronto-rubocop
-  proto
   pry-rails
   rails (= 4.0.0)
   rails_12factor

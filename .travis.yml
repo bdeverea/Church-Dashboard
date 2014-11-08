@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-- 2.1.1
+- 2.0.0
 script: 
 - 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} && bundle exec pronto run -f github_pr'
 - bundle update rake
