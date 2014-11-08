@@ -19,4 +19,4 @@ deploy:
     repo: bdeverea/Church-Dashboard
 before_script: 
   - 'bundle exec rake db:test:prepare'
-  - 'rake db:migrate'
+  - 'bundle exec rake db:migrate'
