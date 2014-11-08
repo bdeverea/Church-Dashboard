@@ -1,4 +1,6 @@
 Dashboard::Application.routes.draw do
+  resources :users
+
   resources :people
   resources :services do
     resources :events
