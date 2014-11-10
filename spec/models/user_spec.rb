@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe User do
   
+  it 'is valid with example attributes' do
+    user1 = User.new(user_attributes)
+
+    expect(user1.valid?).to eq(true)
+
+  end
+
   it 'requires a name' do
     user1 = User.new(name: "")
     user2 = User.new(name: "Bob")
@@ -51,7 +58,7 @@ describe User do
     expect(user2.errors[:email].first).to eq("has already been taken")
   end
 
-  it 'requires a password when created' do 
+  it 'requires a password' do 
     user1 = User.new(user_attributes(password: ''))
     user2 = User.new(user_attributes)
 
@@ -61,5 +68,42 @@ describe User do
     expect(user1.errors[:password].any?).to eq(true)
     expect(user2.errors[:password].any?).to eq(false)
   end
+
+  it 'requires a password confirmation when a password is present' do
+    user1 = User.new(user_attributes(password_confirmation: ""))
+
+    user1.valid?
+
+    expect(user1.errors[:password_confirmation].any?).to be(true)
+  end
+
+  it 'requires a password confirmation to match the password' do
+    user1 = User.new(user_attributes(password_confirmation: "NoMatch"))
+
+    user1.valid?
+
+    expect(user1.errors[:password_confirmation].first).to eq("doesn't match Password")
+  end
+
+  it 'requires a password and matching password confirmation on create' do
+    user1 = User.create!(user_attributes)
+
+    expect(user1.valid?).to eq(true)
+  end
+
+  it 'does not require a password and matching password confirmation on update' do
+    user1 = User.create!(user_attributes)
+    
+    user1.password = ""
+
+    expect(user1.valid?).to eq(true)
+  end
+
+  it 'automatically encrypts the password into the password_digest' do
+    user1 = User.new(user_attributes)
+
+    expect(user1.password_digest.present?).to be(true)
+  end
+
 
 end
