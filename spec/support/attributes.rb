@@ -39,3 +39,11 @@ def room_attributes (overrides = {})
 	}.merge(overrides)
 end
 
+def user_attributes (overrides = {})
+	{
+		name: "Bob Builder",
+		email: "bob@email.com",
+		password: "secret",
+		password_confirmation: "secret"
+	}.merge(overrides)
+end
