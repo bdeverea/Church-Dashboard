@@ -69,6 +69,14 @@ describe User do
     expect(user2.errors[:password].any?).to eq(false)
   end
 
+  it 'requires a password greater than 8 characters' do
+    user1 = User.new(user_attributes(password: '1234567'))
+
+    user1.valid?
+
+    expect(user1.errors[:password].any?).to eq(true)
+  end
+
   it 'requires a password confirmation when a password is present' do
     user1 = User.new(user_attributes(password_confirmation: ""))
 
