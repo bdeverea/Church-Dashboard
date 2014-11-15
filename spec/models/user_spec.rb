@@ -9,15 +9,15 @@ describe User do
 
   end
 
-  it 'requires a name' do
-    user1 = User.new(name: "")
-    user2 = User.new(name: "Bob")
+  it 'requires a first and last name' do
+    user1 = User.new(first_name: "", last_name: "")
+    user2 = User.new(first_name: "Bob", last_name: "Builder")
 
     user1.valid?
     user2.valid?
 
-    expect(user1.errors[:name].any?).to eq(true)
-    expect(user2.errors[:name].any?).to eq(false)
+    expect(user1.errors[:first_name].any?).to eq(true)
+    expect(user2.errors[:first_name].any?).to eq(false)
   end
 
   it 'requires an email address' do
@@ -111,6 +111,12 @@ describe User do
     user1 = User.new(user_attributes)
 
     expect(user1.password_digest.present?).to be(true)
+  end
+
+  it 'returns a formatted name' do
+    user1 = User.new(user_attributes)
+
+    expect(user1.name).to eq(user1.last_name + ', ' + user1.first_name)
   end
 
 
