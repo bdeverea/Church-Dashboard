@@ -3,5 +3,8 @@
 </header>
 <section class="row">
   <p><%= mail_to @user.email %></p>
-  <footer></footer>
+  <footer>
+    <%= link_to 'Edit', edit_user_path(@user) %> | 
+    <%= link_to 'All Users', users_path %>
+  </footer>
 </section>

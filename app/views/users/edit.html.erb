@@ -1,0 +1,11 @@
+<header>
+  <h1>Edit @user.name</h1>
+</header>
+
+<%= render 'shared/errors', object: @user %>
+<%= render "form" %>
+
+<footer>
+  <%= link_to 'Cancel', user_path(@user) %> |
+  <%= link_to 'All Users', users_path %>
+</footer>
