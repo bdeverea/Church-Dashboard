@@ -1,0 +1,8 @@
+ruby:
+  config_file: config/.rubocop.yml
+coffee_script:
+  config_file: config/.coffeelint.json
+java_script:
+  config_file: config/.jshint.json
+scss:
+  config_file: config/scss.yml
