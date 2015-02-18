@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
 	private
 
 	def combine_date_time
-		if date != ""
+		if date != "" && date
 			new_date = Date.parse(date)
 			self.time = time.change(month: new_date.month, day: new_date.day, year: new_date.year)
 		end
