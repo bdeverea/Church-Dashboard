@@ -21,7 +21,7 @@ end
 def event_attributes (overrides = {})
 	{
 		name: 'Weekend Service',
-		date: '2014-02-20',
+		date: Date.today.to_s,
 		time: '17:41:25',
 		attendance: 123,
 		service_id: 1,

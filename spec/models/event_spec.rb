@@ -32,12 +32,14 @@ describe "An Event" do
 		expect(event2.valid?).to be_false
 	end
 
-	it "does not require a unique name" do
+	it "does not require a unique name but does require a unique date" do
 		event = Event.create(event_attributes)
 		event2 = Event.create(event_attributes(date: Date.today.to_s))
+		event3 = Event.create(event_attributes(date: "2020-01-01"))
 
 		expect(event.valid?).to be_true
-		expect(event2.valid?).to be_true
+		expect(event2.valid?).to be_false
+		expect(event3.valid?).to be_true
 	end
 
 	it "requires a service_id" do
