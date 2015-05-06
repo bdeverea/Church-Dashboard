@@ -72,6 +72,12 @@ gem 'country_select'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Use roo to read spreadsheet documents
+gem 'roo'
+
+# User Paperclip to handle file uploads
+gem 'paperclip', '~> 4.2'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

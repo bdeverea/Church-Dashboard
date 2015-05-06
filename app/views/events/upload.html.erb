@@ -1,0 +1,15 @@
+<%= form_for @file do |f| %>
+  <fieldset>
+  <div class="row">
+    <div class="columns">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "" %>
+    </div>
+  </div>
+ 
+
+  <%= f.submit nil, class: "button radius" %> <%= link_to 'Cancel', events_url %>
+
+</fieldset>
+<% end %>
+

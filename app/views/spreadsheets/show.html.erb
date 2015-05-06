@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= link_to @spreadsheet.name, @spreadsheet.workbook.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spreadsheet.description %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @spreadsheet.created_by %>
+</p>
+
+<p>
+  <strong>Modified by:</strong>
+  <%= @spreadsheet.modified_by %>
+</p>
+
+<%= link_to 'Edit', edit_spreadsheet_path(@spreadsheet) %> |
+<%= link_to 'Back', spreadsheets_path %>

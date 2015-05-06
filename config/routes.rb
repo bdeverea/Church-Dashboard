@@ -1,4 +1,7 @@
 Dashboard::Application.routes.draw do
+  
+  get 'spreadsheets/import' => 'spreadsheets#import'
+
   resources :users
 
   resources :people
@@ -13,6 +16,7 @@ Dashboard::Application.routes.draw do
   resources :events
   resources :rooms
   resources :dashboards
+  resources :spreadsheets
 
   root 'dashboards#index'
 

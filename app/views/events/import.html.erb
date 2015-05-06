@@ -1,0 +1,46 @@
+<h1>Import Spreadsheet</h1>
+  <dl class="tabs" data-tab>
+  <% @workbook.sheets.each do | sheet, i| 
+      
+    spreadsheet = @workbook.sheet(sheet)
+
+    unless spreadsheet.last_row.nil?
+      headers = @workbook.sheet(sheet).row(1).compact
+  %>
+
+    <dd class="tab-title"><a href="#<%= sheet.delete(' ') %>"><%= sheet %></a></dd>
+  <% end %>
+  <% end %>
+  </dl>
+
+<div class="tabs-content">
+  <% @workbook.sheets.each do | sheet, i| 
+      
+    spreadsheet = @workbook.sheet(sheet)
+
+    unless spreadsheet.last_row.nil?
+      headers = @workbook.sheet(sheet).row(1).compact
+  %>
+  <div class="content" id="<%= sheet.delete(' ') %>">
+    <table role="grid">
+      <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        <% headers.each do |header| %>
+        <th><%= header %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <% (2..spreadsheet.last_row).each do |i| %>
+       <tr>
+        <td><input type="checkbox" /></td>
+        <% (0..headers.size-1).each do |h| %>
+        <td><%= @workbook.row(i)[h] %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table> 
+    <% end %>
+  </div>
+  <% end %>
+</div>

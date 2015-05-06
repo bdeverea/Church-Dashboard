@@ -18,4 +18,4 @@
 //= require Highcharts-3/js/highcharts
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(document).foundation();
